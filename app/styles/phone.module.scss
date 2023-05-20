@@ -1,0 +1,33 @@
+.wrapp {
+    display: grid;
+    height: 100vh;
+    margin-top: 50px;
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+    grid-template-rows: repeat(3, min-content);
+    grid-template-areas: 'phone name'
+                        'phone descr'
+                        'phone buy';
+}
+.photo{
+    grid-area: phone;
+}
+
+.name{
+    grid-area: name;
+}
+
+.description{
+    grid-area: descr;
+    width: 70%;
+}
+
+.buy {
+    grid-area: buy;
+}
+.buybtn{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(224, 224, 208);
+    border: 1px solid black;
+}

@@ -4,16 +4,15 @@
 }
 body {
   position: relative;
-  height: 100vh;
 }
 .wrapp {
   display: grid;
-  grid-template-columns: repeat(2,20% 80%);
+  grid-template-columns: repeat(2, 20% 80%);
+  grid-gap: 0;
 }
 header {
   background-color: rgb(224, 224, 208);
   height: 70px;
-  width: 100%;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -29,24 +28,36 @@ header {
 }
 main{
   margin-top: 50px;
-  text-align: center;
+  h1 {
+    text-align: left;
+  }
 }
-aside{
-  text-align: center;
-  line-height: 50px;
-  margin-top: 50px;
-  ul>li *{
+
+.aside_menu{
+display: grid;
+margin-top: 50px;
+grid-template-rows: repeat(3, 100px);
+  &_item{
     text-decoration: none;
+    text-align: center;
+    padding-top: 40px;
     color: black;
+    animation-timing-function: ease-in-out;
+    transition: .7s;
+    &:hover{
+      color:rgb(149, 148, 146);
+      background-color: rgb(224, 224, 208);
+    }
   }
 }
 footer {
-  position: absolute;
-  bottom: 0;
+  margin-top: 50px;
   background-color:rgb(224, 224, 208);
   height: 50px;
   width: 100%;
   text-align: left;
-  padding-left: 50px;
   line-height: 45px;
+  div{
+    margin-left: 50px;
+  }
 }

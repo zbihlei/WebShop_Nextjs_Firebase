@@ -18,15 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body  suppressHydrationWarning={true} >
+      <body  className={sm.className} >
         <TheHeader/>
         <div className="wrapp">
         <aside>
-          <ul>
-            <li><Link href={'/phones'}>Phones</Link></li>
-            <li><Link href={'/tablets'}>Tablets</Link></li>
-            <li><Link href={'/laptops'}>Laptops</Link></li>
-          </ul>
+          <div className='aside_menu'>
+           <Link className='aside_menu_item' href={'/phones'}>Phones</Link>
+           <Link className='aside_menu_item' href={'/tablets'}>Tablets</Link>
+           <Link className='aside_menu_item' href={'/laptops'}>Laptops</Link>
+          </div>
         </aside>
         <main>
         {children}

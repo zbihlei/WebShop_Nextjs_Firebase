@@ -1,8 +1,8 @@
-import {collection, getDocs} from 'firebase/firestore';
+import {collection, getDocs,} from 'firebase/firestore';
 import {db} from '../../firebase-config';
 import Link from 'next/link';
 import styles from '../styles/phones.module.scss';
-import { Grid, ListItem, Typography } from '@mui/material'
+
 
 
 //get phones from db
@@ -19,13 +19,17 @@ export default async function Phones(){
 
     return (
     <>
-          <h1>Phones page</h1>
-        <ul>
+          <h1>Phones</h1>
+        <ul className={styles.productlist}>
             {phonesList.map((phone: any)=>{
+                   const descr : string = phone.description
+                   const shortDescr = descr.substring(0,100);
                 return (
-                  <li className={styles.test} key={phone.id}>
-                    <Link href={`/phones/${phone.id}`}>{phone.name} {phone.model}</Link>
-                    <div>{phone.description}</div>
+                  <li className={styles.listitem} key={phone.id}>
+                    <Link href={`/phones/${phone.id}`} className={styles.photo}><img src={phone.photo} alt="phone"/></Link>
+                    <Link href={`/phones/${phone.id}`} className={styles.name}>{phone.name} {phone.model}</Link>
+                    <div className={styles.price}>{phone.price}$</div>
+                    <div className={styles.description}>{shortDescr} ...</div>
                   </li>
                 )
             })}
@@ -33,16 +37,3 @@ export default async function Phones(){
     </>
     )
 }
-
-
-
-// <ul>
-// {phonesList.map((phone: any)=>{
-//     return (
-//       <li className={styles.test} key={phone.id}>
-//         <Link href={`/phones/${phone.id}`}>{phone.name} {phone.model}</Link>
-//         <div>{phone.description}</div>
-//       </li>
-//     )
-// })}
-// </ul>

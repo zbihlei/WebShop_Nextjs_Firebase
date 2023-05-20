@@ -1,5 +1,5 @@
 export default function Tablets(){
     return(
-        <h1>Tablets page</h1>
+        <h1>Tablets</h1>
     )
 }

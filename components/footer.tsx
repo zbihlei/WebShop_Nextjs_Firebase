@@ -1,7 +1,7 @@
 export default function Thefooter(){
     return (
         <footer>
-            this is some footer copyright
+            <div>this is some footer copyright</div>    
         </footer>
     )
 }
