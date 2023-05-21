@@ -1,8 +1,7 @@
 
+
 export default function TheHeader(){
   return (
-      <header>
-         <input type="search" placeholder="search..."/>
-      </header>
+      <header><div style={{'margin-left': '50px'}}>webshop</div></header>
   )
 }

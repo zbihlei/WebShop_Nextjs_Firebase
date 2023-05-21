@@ -1,6 +1,7 @@
 import {db} from '../../../firebase-config';
 import {doc, getDoc} from 'firebase/firestore';
 import styles from '../../styles/phone.module.scss';
+import Product from '@/interfaces/product';
 
 type Props = {
     params: {
@@ -19,7 +20,7 @@ async function getPhone (coll: string, id:string) {
 
 
 export default async function Phone({params} : Props){
-    const phone  = await getPhone("phones",params.id);
+    const phone: Product  = await getPhone("phones",params.id);
 
     return (
     <>

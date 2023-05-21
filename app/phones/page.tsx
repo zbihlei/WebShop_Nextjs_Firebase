@@ -2,7 +2,7 @@ import {collection, getDocs,} from 'firebase/firestore';
 import {db} from '../../firebase-config';
 import Link from 'next/link';
 import styles from '../styles/phones.module.scss';
-
+import Product from '@/interfaces/product';
 
 
 //get phones from db
@@ -14,14 +14,15 @@ const phonesCollectionRef = collection(db, "phones");
 
 
 export default async function Phones(){
-    const phones = await getPhones();
+    const phones :Product = await getPhones();
     const phonesList: any = phones.docs.map((phone) => ({...phone.data(), id:phone.id}));
-
+   
+    
     return (
     <>
           <h1>Phones</h1>
         <ul className={styles.productlist}>
-            {phonesList.map((phone: any)=>{
+            {phonesList.map((phone)=>{
                    const descr : string = phone.description
                    const shortDescr = descr.substring(0,100);
                 return (
