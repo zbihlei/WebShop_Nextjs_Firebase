@@ -1,7 +1,7 @@
 import './globals.scss'
 import { Space_Mono } from 'next/font/google'
-import TheHeader from '@/components/header'
-import TheFooter from '@/components/footer'
+import TheHeader from '@/components/Header'
+import TheFooter from '@/components/Footer'
 import Link from 'next/link'
 
 const sm = Space_Mono({ subsets: ['latin'] , weight:'400' })

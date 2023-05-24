@@ -1,40 +1,39 @@
-import {collection, getDocs,} from 'firebase/firestore';
-import {db} from '../../firebase-config';
-import Link from 'next/link';
-import styles from '../styles/phones.module.scss';
-import Product from '@/interfaces/product';
+"use client"
+
+import { useEffect, useState } from 'react';
+import { getAllPhones } from '@/services/getPhones';
+import {PhonesList} from '@/components/Phones';
+import {Search} from '@/components/Search';
+
+export default function Phones(){
+  const [phones, setPhones] = useState([]);
+  const [loading, setLoading] = useState(true);
 
 
-//get phones from db
-const phonesCollectionRef = collection(db, "phones");
- async function getPhones() {
-    const data = await getDocs(phonesCollectionRef);
-        return data; 
- }
+  const onRequest = () =>{
+    getAllPhones()
+    .then(setPhones)
+    .finally(()=>setLoading(false));
+  }
 
+  const getBySearch =(param : string)=>{
+    if (!param) {
+      onRequest();
+    }
+    return phones.filter((item)=>
+        item.model.toLowerCase().includes(param)
+    )}
 
-export default async function Phones(){
-    const phones :Product = await getPhones();
-    const phonesList: any = phones.docs.map((phone) => ({...phone.data(), id:phone.id}));
-   
+    useEffect(()=>{
+      onRequest()
+    },[])
     
     return (
     <>
-          <h1>Phones</h1>
-        <ul className={styles.productlist}>
-            {phonesList.map((phone)=>{
-                   const descr : string = phone.description
-                   const shortDescr = descr.substring(0,100);
-                return (
-                  <li className={styles.listitem} key={phone.id}>
-                    <Link href={`/phones/${phone.id}`} className={styles.photo}><img src={phone.photo} alt="phone"/></Link>
-                    <Link href={`/phones/${phone.id}`} className={styles.name}>{phone.name} {phone.model}</Link>
-                    <div className={styles.price}>{phone.price}$</div>
-                    <div className={styles.description}>{shortDescr} ...</div>
-                  </li>
-                )
-            })}
-        </ul>
+       <h1>Phones</h1>
+       <Search getBySearch = {getBySearch} onSearch = {setPhones}/>
+       {loading ? <h3>Loading...</h3> : <PhonesList phones = {phones}/>}
+       
     </>
-    )
+  )
 }
