@@ -5,6 +5,9 @@ import TheFooter from '@/components/Footer'
 import Link from 'next/link'
 import {Navigation} from '../components/Navigation';
 
+import { Providers } from '@/store/provider';
+
+
 const sm = Space_Mono({ subsets: ['latin'] , weight:'400' })
 
 export const metadata = {
@@ -24,6 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+
     <html lang="en">
       <body  className={sm.className} >
         <TheHeader/>
@@ -32,11 +36,14 @@ export default function RootLayout({
           <Navigation navLinks = {navItems}/>
         </aside>
         <main>
-        {children}
+          <Providers>
+          {children}
+          </Providers>
         </main>
         </div>
         <TheFooter/>
         </body>
     </html>
+
   )
 }

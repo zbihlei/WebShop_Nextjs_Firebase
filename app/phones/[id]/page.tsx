@@ -1,6 +1,10 @@
-import {db} from '../../../firebase-config';
-import {doc, getDoc} from 'firebase/firestore';
+"use client"
 import styles from '../../styles/phone.module.scss';
+import { getPhone } from '@/services/getPhones';
+import { useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPhone, addToBasket } from '@/store/phoneSlice';
+
 
 type Props = {
     params: {
@@ -8,18 +12,82 @@ type Props = {
     }
 }
 
-//get phone from db used collection name and id/ id from params
-async function getPhone (coll: string, id:string) {
-    const phone = await getDoc(doc(db, coll, id))
-    if (phone.exists())
-      return phone.data()
-    else
-      return Promise.reject(Error(`No such phone!: ${coll}.${id}`))
-  }
+export default function Phone({params} : Props){
+
+    const phone = useSelector(state => state.phone);
+    const dispatch = useDispatch();
+
+    //add to order with quantity
+    // const addNewOrder = (goodsItem) => {
+        
+    //     let quantity = 1;
+    
+    //     const indexInOrder = order.findIndex(
+    //         (item) => item.id === goodsItem.id
+    //     );
+    
+    //     if (indexInOrder > -1) {
+    //         quantity = order[indexInOrder].quantity + 1;
+    
+    //         dispatch(addToBasket(order.map((item) => {
+    //                 if (item.id !== goodsItem.id) return item;
+    
+    //                 return {
+    //                     id: item.id,
+    //                     name: item.name,
+    //                     model: item.model,
+    //                     price: item.price,
+    //                     quantity,
+    //                 };
+    //             }),
+    //         ));
+    //     } else {
+    //         dispatch(addToBasket([
+    //                 ...order,
+    //                 {
+    //                     id: goodsItem.id,
+    //                     name: goodsItem.name,
+    //                     model: goodsItem.model,
+    //                     price: goodsItem.price,
+    //                     quantity,
+    //                 },
+    //             ],
+    //         ));
+    //     }
+    
+       
+    // };
 
 
-export default async function Phone({params} : Props){
-    const phone  = await getPhone("phones",params.id);
+    const addOrder  = (item) => {
+        dispatch(addToBasket([
+            {
+                id: item.id,
+                name: item.name,
+                model: item.model,
+                price: item.price,  
+            },
+        ],
+    ));
+
+    };
+
+    const onRequest=()=>{
+        getPhone("phones",params.id)
+        .then((data)=>{
+            dispatch(setPhone({
+                id: params.id,
+                name: data.name,
+                model: data.model,
+                description:data.description,
+                photo: data.photo,
+                price: data.price
+            }))
+        })
+    }
+    useEffect(()=>{
+         onRequest();
+    },[])
 
     return (
     <>
@@ -27,8 +95,9 @@ export default async function Phone({params} : Props){
         <img src={phone.photo} alt={phone.name} className={styles.photo} />
         <div className={styles.name}>{phone.name} {phone.model}</div>
         <div className={styles.description}>{phone.description}</div>
-        <div className={styles.buy}><button className={styles.buybtn}>BUY {phone.price}$</button></div>
+        <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{addOrder({id: params.id, name: phone.name ,model: phone.model ,price: phone.price})}}>BUY {phone.price}$</button></div>
     </div>
+
     </>
     )
 }

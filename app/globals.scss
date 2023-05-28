@@ -12,7 +12,7 @@ body {
 }
 header {
   background-color: rgb(224, 224, 208);
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -28,16 +28,20 @@ header {
 }
 main{
   margin-top: 50px;
+  margin-left: 50px;
   h1 {
+    line-height: 40px;
     text-align: left;
   }
 }
 
 
 footer {
+  position: fixed;
+  bottom: 0;
   margin-top: 50px;
   background-color:rgb(224, 224, 208);
-  height: 50px;
+  height: 40px;
   width: 100%;
   text-align: left;
   line-height: 45px;

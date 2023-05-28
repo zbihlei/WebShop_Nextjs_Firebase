@@ -1,4 +1,4 @@
-import {collection, getDocs,} from 'firebase/firestore';
+import {collection, getDocs, getDoc, doc} from 'firebase/firestore';
 import {db} from '../firebase-config';
 
 //get phones from db
@@ -9,3 +9,13 @@ import {db} from '../firebase-config';
         return phonesList;
 
  }
+
+
+//get phone from db used collection name and id/ id from params
+export async function getPhone (coll: string, id:string) {
+    const phone = await getDoc(doc(db, coll, id))
+    if (phone.exists())
+      return phone.data()
+    else
+      return Promise.reject(Error(`No such phone!: ${coll}.${id}`))
+  }

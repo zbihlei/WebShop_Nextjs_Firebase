@@ -1,0 +1,14 @@
+.headerwrapp {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    margin-left: 50px;
+}
+
+.right *{
+    text-decoration: none;
+    color: black;
+    margin-right: 50px;
+}

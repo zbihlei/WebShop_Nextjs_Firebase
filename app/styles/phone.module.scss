@@ -26,9 +26,11 @@
     grid-area: buy;
 }
 .buybtn{
+    cursor: pointer;
     font-family: serif;
     width: 200px;
     height: 50px;
     background-color: rgb(224, 224, 208);
     border: 1px solid black;
 }
+
