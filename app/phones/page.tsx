@@ -1,14 +1,13 @@
 "use client"
-
 import { useEffect, useState } from 'react';
 import { getAllPhones } from '@/services/getPhones';
 import {PhonesList} from '@/components/Phones';
 import {Search} from '@/components/Search';
 
+
 export default function Phones(){
   const [phones, setPhones] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   const onRequest = () =>{
     getAllPhones()

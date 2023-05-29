@@ -1,0 +1,27 @@
+.youbuyit{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 1024px;
+    height: 400px;
+    text-align: center;
+    background-color:  rgba(255, 255, 255, 0.8);
+    span {
+        font-size: 25px;
+        padding: 20px 50px;
+        background-color: rgb(224, 224, 208);
+    }
+}
+.wrapp {
+    opacity: .1;
+    display: grid;
+    height: 100vh;
+    margin-top: 50px;
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+    grid-template-rows: repeat(3, min-content);
+    grid-template-areas: 'phone name'
+                        'phone descr'
+                        'phone buy';
+}

@@ -1,10 +1,10 @@
 "use client"
 import styles from '../../styles/phone.module.scss';
 import { getPhone } from '@/services/getPhones';
-import { useEffect} from 'react';
+import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPhone, addToBasket } from '@/store/phoneSlice';
-
+import YouBuyIT from '@/components/Youbuyit';
 
 type Props = {
     params: {
@@ -12,10 +12,12 @@ type Props = {
     }
 }
 
+
 export default function Phone({params} : Props){
 
     const phone = useSelector(state => state.phone);
     const dispatch = useDispatch();
+    const [buy, setBuy] = useState(false);
 
     //add to order with quantity
     // const addNewOrder = (goodsItem) => {
@@ -58,8 +60,8 @@ export default function Phone({params} : Props){
        
     // };
 
-
-    const addOrder  = (item) => {
+    const addOrder  = (item) => { 
+        setBuy(true);
         dispatch(addToBasket([
             {
                 id: item.id,
@@ -73,6 +75,7 @@ export default function Phone({params} : Props){
     };
 
     const onRequest=()=>{
+        setBuy(false);
         getPhone("phones",params.id)
         .then((data)=>{
             dispatch(setPhone({
@@ -92,12 +95,14 @@ export default function Phone({params} : Props){
     return (
     <>
     <div className={styles.wrapp}>
+        {buy ? <YouBuyIT phone = {phone}/> :  <>
+
         <img src={phone.photo} alt={phone.name} className={styles.photo} />
         <div className={styles.name}>{phone.name} {phone.model}</div>
         <div className={styles.description}>{phone.description}</div>
         <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{addOrder({id: params.id, name: phone.name ,model: phone.model ,price: phone.price})}}>BUY {phone.price}$</button></div>
-    </div>
-
+        </>}
+        </div> 
     </>
     )
 }

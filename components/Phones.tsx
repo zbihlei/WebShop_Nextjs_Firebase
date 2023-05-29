@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import styles from '../app/styles/phones.module.scss'
-
+import { useSelector } from 'react-redux';
 type Props ={
     phones: any[]
 }
 
-const PhonesList = ({phones}: Props)=> {
+const PhonesList = ({phones}:Props)=> {
+
     return (
+    
         <ul className={styles.productlist}>
         {phones.map((phone:any)=>{
 
