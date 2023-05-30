@@ -5,6 +5,7 @@ import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPhone, addToBasket } from '@/store/phoneSlice';
 import YouBuyIT from '@/components/Youbuyit';
+import Link from 'next/link';
 
 type Props = {
     params: {

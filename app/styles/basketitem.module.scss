@@ -1,12 +1,13 @@
 .list {
+    width: 400px;
+    margin-bottom: 30px;
     list-style: none;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
-    margin-bottom: 50px;
     background-color: rgb(224, 224, 208);
     padding: 15px;
     border-radius: 10px;
+    margin-right: 50px;
 }
 
 .delete{
