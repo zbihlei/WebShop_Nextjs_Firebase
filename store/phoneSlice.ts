@@ -1,7 +1,8 @@
 import Phones from "@/app/phones/page";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState ={
+
+ const initialState ={
     id: null,
     name: null,
     model: null,
@@ -28,10 +29,13 @@ const phoneSlice = createSlice({
         },
         deleteFromBasket(state, action){
             state.basket = state.basket.filter(item => item.id !== action.payload);
+        },
+        clearBasket(state){
+            state.basket = initialState.basket
         }
     }
 });
 
-export const{setPhone, addToBasket, deleteFromBasket} = phoneSlice.actions;
+export const{setPhone, addToBasket, deleteFromBasket, clearBasket} = phoneSlice.actions;
 
 export default phoneSlice.reducer;

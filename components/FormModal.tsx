@@ -3,8 +3,8 @@ import * as Yup from 'yup';
 import styles from '../app/styles/form.module.scss';
 
 
-const MyForm = () => {
- 
+const MyForm = ({handleSubmit}: any) => {
+
 return (
     <Formik
     initialValues = {{
@@ -24,7 +24,7 @@ return (
              surname: Yup.string()
                          .required('Required field!')
          })} 
-         onSubmit = {values => console.log(JSON.stringify(values, null, 2))}
+         onSubmit = {(client)=>handleSubmit(client)}
     >
 <div className={styles.wrapp}> 
         <Form className={styles.form}>

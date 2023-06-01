@@ -1,5 +1,6 @@
-import {collection, getDocs, getDoc, doc} from 'firebase/firestore';
+import {collection, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
 import {db} from '../firebase-config';
+import { v4 as uuidv4 } from 'uuid';
 
 //get phones from db
  const phonesCollectionRef = collection(db, "phones");
@@ -19,3 +20,18 @@ export async function getPhone (coll: string, id:string) {
     else
       return Promise.reject(Error(`No such phone!: ${coll}.${id}`))
   }
+//post basket data to database
+
+export async function postBasket(data:any, coll:string) {
+ 
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
+  today.toUTCString();
+  let id = today.toUTCString();
+
+ await setDoc(doc(db, coll, id), {
+      ...data,
+      oderAt: today 
+    })
+
+}
