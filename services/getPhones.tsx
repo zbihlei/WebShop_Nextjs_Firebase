@@ -1,6 +1,5 @@
 import {collection, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
 import {db} from '../firebase-config';
-import { v4 as uuidv4 } from 'uuid';
 
 //get phones from db
  const phonesCollectionRef = collection(db, "phones");
@@ -10,7 +9,6 @@ import { v4 as uuidv4 } from 'uuid';
         return phonesList;
 
  }
-
 
 //get phone from db used collection name and id/ id from params
 export async function getPhone (coll: string, id:string) {
@@ -35,3 +33,4 @@ export async function postBasket(data:any, coll:string) {
     })
 
 }
+

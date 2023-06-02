@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from '../app/styles/phones.module.scss'
-import { useSelector } from 'react-redux';
+
 type Props ={
     phones: any[]
 }

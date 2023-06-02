@@ -3,7 +3,7 @@ import phoneReducer from '../store/phoneSlice';
 
 const store = configureStore({
   reducer: {
-           phone: phoneReducer,
+           phone: phoneReducer
   },
   devTools: process.env.NODE_ENV !== 'production'
 });

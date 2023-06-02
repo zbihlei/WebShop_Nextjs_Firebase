@@ -20,7 +20,7 @@ export default function Phones(){
       onRequest();
     }
     return phones.filter((item)=>
-        item.model.toLowerCase().includes(param)
+        item.model.toLowerCase().includes(param) 
     )}
 
     useEffect(()=>{
