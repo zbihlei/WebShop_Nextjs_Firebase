@@ -68,7 +68,8 @@ export default function Phone({params} : Props){
                 id: item.id,
                 name: item.name,
                 model: item.model,
-                price: item.price,  
+                photo: item.photo,
+                price: item.price
             },
         ],
     ));
@@ -101,7 +102,7 @@ export default function Phone({params} : Props){
         <img src={phone.photo} alt={phone.name} className={styles.photo} />
         <div className={styles.name}>{phone.name} {phone.model}</div>
         <div className={styles.description}>{phone.description}</div>
-        <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{addOrder({id: params.id, name: phone.name ,model: phone.model ,price: phone.price})}}>BUY {phone.price}$</button></div>
+        <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{addOrder({id: params.id, name: phone.name ,model: phone.model, photo:phone.photo ,price: phone.price})}}>BUY {phone.price}$</button></div>
         </>}
         </div> 
     </>

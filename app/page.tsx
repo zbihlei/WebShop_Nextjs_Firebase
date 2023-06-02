@@ -1,5 +1,5 @@
 "use client"
-import styles from './page.module.css'
+import styles from '../app/styles/home.module.scss'
 import { useState,useEffect } from 'react';
 import { getAllOrders } from '@/services/getOrders';
 import { OrderList } from '@/components/Orders';
@@ -22,7 +22,8 @@ export default function Home() {
 
   return (
     <>
-      <div>Last orders...</div>
+      <h1 className={styles.welcome}>welcome to our store!</h1>
+      <div>The last ordered products</div>
       {loading ? <h3>Loading...</h3> : <OrderList orders = {orders}/>}
     </>
     )

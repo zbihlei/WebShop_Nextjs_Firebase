@@ -1,4 +1,4 @@
-import styles from '../app/styles/phones.module.scss'
+import styles from '../app/styles/orders.module.scss'
 
 type Props ={
     orders: any[]
