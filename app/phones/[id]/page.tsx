@@ -66,6 +66,7 @@ export default function Phone({params} : Props){
         dispatch(addToBasket([
             {
                 id: item.id,
+                category:item.category,
                 name: item.name,
                 model: item.model,
                 photo: item.photo,
@@ -82,6 +83,7 @@ export default function Phone({params} : Props){
         .then((data)=>{
             dispatch(setPhone({
                 id: params.id,
+                category: data.category,
                 name: data.name,
                 model: data.model,
                 description:data.description,
@@ -102,7 +104,13 @@ export default function Phone({params} : Props){
         <img src={phone.photo} alt={phone.name} className={styles.photo} />
         <div className={styles.name}>{phone.name} {phone.model}</div>
         <div className={styles.description}>{phone.description}</div>
-        <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{addOrder({id: params.id, name: phone.name ,model: phone.model, photo:phone.photo ,price: phone.price})}}>BUY {phone.price}$</button></div>
+        <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{
+            addOrder({id: params.id,
+                    category: phone.category,
+                     name: phone.name,
+                     model: phone.model,
+                     photo:phone.photo,
+                     price: phone.price})}}>BUY {phone.price}$</button></div>
         </>}
         </div> 
     </>

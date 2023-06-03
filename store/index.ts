@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import phoneReducer from '../store/phoneSlice';
+import userReducer from '../store/userSlice';
 
 const store = configureStore({
   reducer: {
-           phone: phoneReducer
+           phone: phoneReducer,
+           user: userReducer
   },
   devTools: process.env.NODE_ENV !== 'production'
 });

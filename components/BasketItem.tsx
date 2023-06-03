@@ -8,10 +8,10 @@ type Props ={
     name:string,
     price:number,
     model:string,
-    photo:string
+
 }
 
-const BasketItem = ({id,name,price,model,photo}:Props) =>{
+const BasketItem = ({id,name,price,model}:Props) =>{
     const dispatch = useDispatch();
 
     return (

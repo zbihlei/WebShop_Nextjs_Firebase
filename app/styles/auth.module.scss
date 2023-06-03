@@ -1,0 +1,41 @@
+
+.authpage {
+    margin-top: 25px;
+    display: grid;
+    grid-template-areas: 'head''form''link';
+    grid-template-rows: 20px 200px 50px;
+   
+    &_head{
+        grid-area: head;
+        margin:0;
+        background-color: transparent;
+        text-align: center;
+    }
+    &_form{
+        grid-area: form;
+        display: flex;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+    &_link{
+        display: flex;
+        justify-content: space-between;
+        grid-area: link;
+        text-align: center;
+        span{
+            display: block;
+            line-height: 40px;
+        }
+        button {
+            cursor: pointer;
+            width: 100px;
+            height: 40px;
+            background-color: rgb(224, 224, 208);
+            &:hover{
+                background-color: rgb(244, 244, 237);
+                color: rgb(96, 96, 96);
+            }
+        }
+    }
+}

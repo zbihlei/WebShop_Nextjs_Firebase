@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
  const initialState ={
     id: null,
+    category: 'phones',
     name: null,
     model: null,
     photo: null,
@@ -18,6 +19,7 @@ const phoneSlice = createSlice({
     reducers:{
         setPhone(state, action){
             state.id = action.payload.id;
+            state.category = initialState.category;
             state.name = action.payload.name;
             state.model = action.payload.model;
             state.photo = action.payload.photo;

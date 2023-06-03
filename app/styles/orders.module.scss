@@ -16,8 +16,10 @@
     filter: grayscale(60%);
     animation-timing-function: ease-in-out;
     transition: .7s;
-    width: 200px;
-    margin: 0 auto;
+    img{
+        width: 200px;
+        margin: 0 auto;
+    }
     &:hover{
         filter: grayscale(0);
     }
@@ -37,8 +39,4 @@
     padding-bottom: 20px;
     text-align: center;
 }
-.description {
-    text-align: center;
-    padding: 0 30px;
-    line-height: 20px;
-}
+
