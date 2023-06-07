@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react';
-import { getAllPhones } from '@/services/getPhones';
-import {PhonesList} from '@/components/Phones';
+import { getAllItems } from '@/services/getGoods';
+import {GoodsList} from '@/components/Goods';
 import {Search} from '@/components/Search';
 
 
@@ -10,7 +10,7 @@ export default function Phones(){
   const [loading, setLoading] = useState(true);
 
   const onRequest = () =>{
-    getAllPhones()
+    getAllItems('phones')
     .then(setPhones)
     .finally(()=>setLoading(false));
   }
@@ -31,7 +31,7 @@ export default function Phones(){
     <>
        <h1>Phones</h1>
        <Search getBySearch = {getBySearch} onSearch = {setPhones}/>
-       {loading ? <h3>Loading...</h3> : <PhonesList phones = {phones}/>}
+       {loading ? <h3>Loading...</h3> : <GoodsList goods = {phones}/>}
        
     </>
   )

@@ -3,9 +3,9 @@ import styles from '../../styles/good.module.scss';
 import { getItem } from '@/services/getGoods';
 import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPhone, addToBasket } from '@/store/phoneSlice';
+import { setLaptop } from '@/store/laptopSlice'; //change
+import { addToBasket } from '@/store/phoneSlice'; //change
 import YouBuyIT from '@/components/Youbuyit';
-
 
 type Props = {
     params: {
@@ -13,12 +13,12 @@ type Props = {
     }
 }
 
+export default function Laptop({params} : Props){
 
-export default function Phone({params} : Props){
-
-    const phone = useSelector(state => state.phone);
+    const laptop = useSelector(state => state.laptop);
     const dispatch = useDispatch();
     const [buy, setBuy] = useState(false);
+    console.log(laptop);
 
     const addOrder  = (item) => { 
         setBuy(true);
@@ -38,9 +38,9 @@ export default function Phone({params} : Props){
 
     const onRequest=()=>{
         setBuy(false);
-        getItem("phones",params.id)
+        getItem('laptops',params.id)
         .then((data)=>{
-            dispatch(setPhone({
+            dispatch(setLaptop({
                 id: params.id,
                 category: data.category,
                 name: data.name,
@@ -58,18 +58,18 @@ export default function Phone({params} : Props){
     return (
     <>
     <div className={styles.wrapp}>
-        {buy ? <YouBuyIT good = {phone}/> :  <>
+        {buy ? <YouBuyIT good = {laptop}/> :  <>
 
-        <img src={phone.photo} alt={phone.name} className={styles.photo} />
-        <div className={styles.name}>{phone.name} {phone.model}</div>
-        <div className={styles.description}>{phone.description}</div>
+        <img src={laptop.photo} alt={laptop.name} className={styles.photo} />
+        <div className={styles.name}>{laptop.name} {laptop.model}</div>
+        <div className={styles.description}>{laptop.description}</div>
         <div className={styles.buy}><button className={styles.buybtn} onClick={()=>{
             addOrder({id: params.id,
-                    category: phone.category,
-                     name: phone.name,
-                     model: phone.model,
-                     photo:phone.photo,
-                     price: phone.price})}}>BUY {phone.price}$</button></div>
+                     category: laptop.category,
+                     name: laptop.name,
+                     model: laptop.model,
+                     photo:laptop.photo,
+                     price: laptop.price})}}>BUY {laptop.price}$</button></div>
         </>}
         </div> 
     </>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import BasketItem from "@/components/BasketItem";
 import MyForm from "@/components/FormModal";
 import styles from '../styles/basket.module.scss';
-import { postBasket } from "@/services/getPhones";
+import { postBasket } from "@/services/postBasket";
 import { clearBasket } from "@/store/phoneSlice";
 import AfterOrder from '@/components/AfterOrder';
 
