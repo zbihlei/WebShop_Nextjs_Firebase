@@ -3,8 +3,9 @@ import styles from '../../styles/good.module.scss';
 import { getItem } from '@/services/getGoods';
 import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLaptop } from '@/store/laptopSlice'; //change
-import { addToBasket } from '@/store/phoneSlice'; //change
+import {setGoods, addToBasket} from '@/store/goodsSlice';
+// import { setLaptop } from '@/store/laptopSlice'; //change
+// import { addToBasket } from '@/store/phoneSlice'; //change
 import YouBuyIT from '@/components/Youbuyit';
 
 type Props = {
@@ -15,10 +16,9 @@ type Props = {
 
 export default function Laptop({params} : Props){
 
-    const laptop = useSelector(state => state.laptop);
+    const laptop = useSelector(state => state.goods);
     const dispatch = useDispatch();
     const [buy, setBuy] = useState(false);
-    console.log(laptop);
 
     const addOrder  = (item) => { 
         setBuy(true);
@@ -40,7 +40,7 @@ export default function Laptop({params} : Props){
         setBuy(false);
         getItem('laptops',params.id)
         .then((data)=>{
-            dispatch(setLaptop({
+            dispatch(setGoods({
                 id: params.id,
                 category: data.category,
                 name: data.name,

@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
  const initialState ={
     id: null,
-    category: 'phones',
+    category: null,
     name: null,
     model: null,
     photo: null,
@@ -13,13 +13,13 @@ import { createSlice } from "@reduxjs/toolkit";
     basket: []
 };
 
-const phoneSlice = createSlice({
-    name: 'phone',
+const goodsSlice = createSlice({
+    name: 'goods',
     initialState,
     reducers:{
-        setPhone(state, action){
+        setGoods(state, action){
             state.id = action.payload.id;
-            state.category = initialState.category;
+            state.category = action.payload.category;
             state.name = action.payload.name;
             state.model = action.payload.model;
             state.photo = action.payload.photo;
@@ -38,6 +38,6 @@ const phoneSlice = createSlice({
     }
 });
 
-export const{setPhone, addToBasket, deleteFromBasket, clearBasket} = phoneSlice.actions;
+export const{setGoods, addToBasket, deleteFromBasket, clearBasket} = goodsSlice.actions;
 
-export default phoneSlice.reducer;
+export default goodsSlice.reducer;

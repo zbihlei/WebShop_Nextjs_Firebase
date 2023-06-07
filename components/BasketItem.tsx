@@ -1,5 +1,5 @@
 "use client"
-import { deleteFromBasket } from "@/store/phoneSlice";
+import { deleteFromBasket } from "@/store/goodsSlice";
 import { useDispatch } from "react-redux";
 import styles from '../app/styles/basketitem.module.scss'
 

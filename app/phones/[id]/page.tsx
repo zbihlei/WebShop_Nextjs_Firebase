@@ -3,7 +3,7 @@ import styles from '../../styles/good.module.scss';
 import { getItem } from '@/services/getGoods';
 import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPhone, addToBasket } from '@/store/phoneSlice';
+import { setGoods, addToBasket } from '@/store/goodsSlice';
 import YouBuyIT from '@/components/Youbuyit';
 
 
@@ -16,7 +16,7 @@ type Props = {
 
 export default function Phone({params} : Props){
 
-    const phone = useSelector(state => state.phone);
+    const phone = useSelector(state => state.goods);
     const dispatch = useDispatch();
     const [buy, setBuy] = useState(false);
 
@@ -40,7 +40,7 @@ export default function Phone({params} : Props){
         setBuy(false);
         getItem("phones",params.id)
         .then((data)=>{
-            dispatch(setPhone({
+            dispatch(setGoods({
                 id: params.id,
                 category: data.category,
                 name: data.name,

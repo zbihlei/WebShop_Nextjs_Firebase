@@ -5,14 +5,14 @@ import BasketItem from "@/components/BasketItem";
 import MyForm from "@/components/FormModal";
 import styles from '../styles/basket.module.scss';
 import { postBasket } from "@/services/postBasket";
-import { clearBasket } from "@/store/phoneSlice";
+import { clearBasket } from "@/store/goodsSlice";
 import AfterOrder from '@/components/AfterOrder';
 
 
 
 export default function Basket(){
   const [ordered, setOrdered] = useState(false);
-  const basket= useSelector(state=>state.phone.basket);
+  const basket= useSelector(state=>state.goods.basket);
   const dispatch = useDispatch()
 
   const handleSubmit = async (client: any) =>{
