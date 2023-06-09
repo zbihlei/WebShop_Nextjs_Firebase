@@ -4,8 +4,6 @@ import { getItem } from '@/services/getGoods';
 import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {setGoods, addToBasket} from '@/store/goodsSlice';
-// import { setLaptop } from '@/store/laptopSlice'; //change
-// import { addToBasket } from '@/store/phoneSlice'; //change
 import YouBuyIT from '@/components/Youbuyit';
 
 type Props = {

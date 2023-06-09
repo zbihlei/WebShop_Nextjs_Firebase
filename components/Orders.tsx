@@ -16,7 +16,6 @@ const OrderList = ({orders}:Props)=> {
               <li className={styles.listitem} key={order.id}>
                 <Link className={styles.photo} href={`/${order.category}/${order.id}`}><img src={order.photo} alt="order"/></Link>
                 <Link  className={styles.name} href={`/${order.category}/${order.id}`}>{order.name} {order.model}</Link> 
-                <div className={styles.price}>{order.price}$</div>
               </li>
             )
         })}
