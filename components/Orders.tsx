@@ -11,13 +11,12 @@ const OrderList = ({orders}:Props)=> {
     <>
         <ul className={styles.productlist}>
         {orders.map((order:any)=>{
-
-            return (
-              <li className={styles.listitem} key={order.id}>
-                <Link className={styles.photo} href={`/${order.category}/${order.id}`}><img src={order.photo} alt="order"/></Link>
-                <Link  className={styles.name} href={`/${order.category}/${order.id}`}>{order.name} {order.model}</Link> 
-              </li>
-            )
+          return (
+            <li className={styles.listitem} key={order.id}>
+              <Link className={styles.photo} href={`/${order.category}/${order.id}`}><img src={order.photo} alt="order"/></Link>
+              <Link  className={styles.name} href={`/${order.category}/${order.id}`}>{order.name} {order.model}</Link> 
+            </li>
+          )
         })}
     </ul>
     </>
@@ -25,3 +24,4 @@ const OrderList = ({orders}:Props)=> {
 }
 
 export {OrderList};
+

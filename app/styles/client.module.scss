@@ -1,14 +1,13 @@
 
 .productlist {
  margin-top: 50px;
- display: flex;
- justify-content: space-around;
-}
-.listitem{
-    display: grid;
-    grid-template-rows: repeat(3, auto);
+ display: grid;
+ grid-template-columns: repeat(auto-fill,min-max(200px, 1fr));
+ grid-template-rows: repeat(auto-fill, min-content);
+ grid-gap: 70px;
 }
 .photo {
+    margin-right: 100px;
     display: flex;
     justify-content: center;
     filter: grayscale(60%);
@@ -23,31 +22,35 @@
     }
 }
 .name{
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    padding-top: 20px;
-    animation-timing-function: ease-in-out;
-    transition: .4s;
-    &:hover {
-        color:rgb(227, 176, 108);
-    }
+    line-height: 50px;
 }
 .status {
+    width: 100px;
     border: 1px solid red;
-    width: 50%;
-    margin: 0 auto;
-    line-height: 40px;
+    line-height: 50px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-top: 20px;
     text-transform: uppercase;
     text-align: center;
 }
 
 .clientInfo{
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
     border: 1px solid black;
-    padding-bottom: 10px;
+    padding: 20px 50px;
+}
+
+.orders_wrapp{
+    margin: 30px 0 70px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // width: 100%;
+}
+.price{
+    width: 100%;
+    margin-right: 50px;
+    text-align: right;
 }
 

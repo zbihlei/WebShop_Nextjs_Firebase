@@ -8,8 +8,8 @@ import { getClientOrders } from '@/services/getOrders';
 function ClientPage() {
     const [loading, setLoading] = useState(true);
     const [orders, setOrders] = useState();
-    // const {email} = useSelector(state =>state.user);
-    const email = 'm@mail.com'
+    const {email} = useSelector(state =>state.user);
+    // const email = 'm@mail.com' // without login
 
     const onRequest =()=>{
         getClientOrders(email)
