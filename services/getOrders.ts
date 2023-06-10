@@ -1,4 +1,4 @@
-import {collection, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
+import {collection, getDocs, getDoc, doc, setDoc, query, where} from 'firebase/firestore';
 import {db} from '../firebase-config';
 
 
@@ -11,4 +11,13 @@ export async function getAllOrders() {
          return {...item.basket[0]}
        })
 
+}
+// get personal orders
+
+export async function getClientOrders(mail:string) {
+   const data = await getDocs(ordersRef);
+   const ordersList: any = data.docs.map((item) => ({...item.data()}));
+       return ordersList.filter((item)=>{
+          return item.client.email.includes(mail);
+      })
 }

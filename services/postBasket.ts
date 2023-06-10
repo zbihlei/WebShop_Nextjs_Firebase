@@ -12,7 +12,8 @@ export async function postBasket(data:any, coll:string) {
   
    await setDoc(doc(db, coll, id), {
         ...data,
-        oderAt: today 
+        oderAt: today,
+        orderStatus: 'new'
       })
   
   }

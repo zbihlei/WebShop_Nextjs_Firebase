@@ -1,4 +1,4 @@
-import {Formik, Form, Field, ErrorMessage, useField} from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import styles from '../app/styles/form.module.scss';
 
@@ -11,6 +11,7 @@ return (
         name: '',
         email: '',
         surname: '',
+        phone: '',
         text: ''
     }}
     validationSchema={
@@ -22,6 +23,9 @@ return (
                      .email('Wrong email adress')
                      .required('Required field!'),
              surname: Yup.string()
+                         .required('Required field!'),
+             phone: Yup.number()
+                         .min(8)
                          .required('Required field!')
          })} 
          onSubmit = {(client)=>handleSubmit(client)}
@@ -47,6 +51,14 @@ return (
             type="text"
             />          
         <ErrorMessage className={styles.error} name='surname' component="div"/>   
+        <label htmlFor="text">phone</label>          
+        <Field
+            label="phone"
+            id="phone"
+            name="phone"
+            type="phone"
+            />          
+        <ErrorMessage className={styles.error} name='phone' component="div"/>   
 
         <label htmlFor="text">email</label>
            <Field

@@ -7,6 +7,7 @@ import Auth from '@/components/auth/Auth';
 import { useAuth } from '@/hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { removeUser } from '@/store/userSlice';
+import Link from 'next/link';
 
 export default function Home() {
   const [orders, setOrders] = useState([]);
@@ -39,6 +40,7 @@ export default function Home() {
       </div>
   
     {!isAuth ? <Auth/> : <div className={styles.welcome_text}>Welcome! {email}</div>}
+    {isAuth ? <Link className={styles.welcome_text} href={'/client'} >My page</Link> : null}
     {isAuth ? <button className={styles.btn_logout}  onClick={()=>dispatch(removeUser())}>Log out</button> : null}
     </div>
 

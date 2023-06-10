@@ -16,7 +16,7 @@ export default function Basket(){
   const dispatch = useDispatch()
 
   const handleSubmit = async (client: any) =>{
-    await postBasket({client, basket}, 'orders')
+    await postBasket({client,basket}, 'orders')
       .then(dispatch(clearBasket()))
       .then(setOrdered(true));
   }
