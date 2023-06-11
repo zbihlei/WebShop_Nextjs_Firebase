@@ -4,7 +4,7 @@ import { getItem } from '@/services/getGoods';
 import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {setGoods, addToBasket} from '@/store/goodsSlice';
-import YouBuyIT from '@/components/Youbuyit';
+import YouBuyIT from '@/components/BuyMessage';
 
 type Props = {
     params: {

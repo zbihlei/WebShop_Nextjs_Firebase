@@ -1,6 +1,5 @@
-import styles from '../app/styles/youbuyit.module.scss';
+import styles from '../app/styles/buyMessage.module.scss';
 import stylesback from '../app/styles/good.module.scss';
-import Link from 'next/link';
 
 export default function YouBuyIT({good}){
     return(

@@ -9,7 +9,6 @@ import { clearBasket } from "@/store/goodsSlice";
 import AfterOrder from '@/components/AfterOrder';
 
 
-
 export default function Basket(){
   const [ordered, setOrdered] = useState(false);
   const basket= useSelector(state=>state.goods.basket);

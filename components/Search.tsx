@@ -1,4 +1,3 @@
-"use client"
 import { FormEventHandler, useState } from "react";
 import styles from '@/app/styles/search.module.scss';
 

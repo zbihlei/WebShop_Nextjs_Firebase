@@ -2,7 +2,6 @@ import './globals.scss'
 import { Space_Mono } from 'next/font/google'
 import TheHeader from '@/components/Header'
 import TheFooter from '@/components/Footer'
-import Link from 'next/link'
 import {Navigation} from '../components/Navigation';
 
 import { Providers } from '@/store/provider';
@@ -30,8 +29,9 @@ export default function RootLayout({
 
     <html lang="en">
       <body  className={sm.className} >
-        <TheHeader/>
-        <div className="wrapp">
+
+       <TheHeader/>
+       <div className="wrapp">
         <aside>
           <Navigation navLinks = {navItems}/>
         </aside>
@@ -42,6 +42,7 @@ export default function RootLayout({
         </main>
         </div>
         <TheFooter/>
+    
         </body>
     </html>
 
