@@ -12,12 +12,19 @@ export async function getAllOrders() {
        })
 
 }
-// get personal orders
-
+// get user orders
 export async function getClientOrders(mail:string) {
    const data = await getDocs(ordersRef);
    const ordersList: any = data.docs.map((item) => ({...item.data()}));
        return ordersList.filter((item)=>{
           return item.client.email.includes(mail);
       })
+}
+
+///get admin page orders
+export async function getAdminOrders() {
+   const data = await getDocs(ordersRef);
+   const ordersList: any = data.docs.map((item) => ({...item.data()}));
+      return ordersList;
+
 }

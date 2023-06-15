@@ -40,8 +40,9 @@ export default function Home() {
       </div>
   
     {!isAuth ? <Auth/> : <div className={styles.welcome_text}>Welcome! {email}</div>}
-    {isAuth ? <Link className={styles.welcome_text} href={'/client'} >My page</Link> : null}
-    {isAuth ? <button className={styles.btn_logout}  onClick={()=>dispatch(removeUser())}>Log out</button> : null}
+    {isAuth  &&  email !== 'admin@mail.com' ? <Link className={styles.welcome_text} href={'/client'} >My page</Link> : null}
+    {isAuth && email === 'admin@mail.com' ? <Link className={styles.welcome_text} href={'/admin'} >Admin page</Link> : null}
+    {isAuth  ? <button className={styles.btn_logout}  onClick={()=>dispatch(removeUser())}>Log out</button> : null}
     </div>
 
       <div>The last ordered products</div>
