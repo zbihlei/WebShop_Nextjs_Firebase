@@ -25,6 +25,6 @@ export async function getClientOrders(mail:string) {
 export async function getAdminOrders() {
    const data = await getDocs(ordersRef);
    const ordersList: any = data.docs.map((item) => ({...item.data()}));
+    
       return ordersList;
-
 }

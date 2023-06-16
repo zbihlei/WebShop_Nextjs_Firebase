@@ -11,8 +11,7 @@ return (
         name: '',
         email: '',
         surname: '',
-        phone: '',
-        text: ''
+        phone: ''
     }}
     validationSchema={
         Yup.object({
@@ -68,14 +67,6 @@ return (
             type="email"
            />    
         <ErrorMessage  className={styles.error} name='email' component="div"/> 
-
-         
-            <label htmlFor="text">your comments</label>
-            <Field 
-                id="text"
-                name="text"
-                as="textarea"
-                 />
       
             <button type="submit">order</button>
         </Form>

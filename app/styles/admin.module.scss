@@ -25,6 +25,7 @@
        line-height: 50px;
    }
    .status {
+    cursor: pointer;
        width: 100px;
        border: 1px solid red;
        line-height: 50px;
@@ -32,6 +33,12 @@
        padding-right: 5px;
        text-transform: uppercase;
        text-align: center;
+   }
+   .statusbtn{
+    cursor: pointer;
+    padding: 0 5px 0 5px;
+    background-color: rgb(224, 224, 208);
+    border: 1px solid black;
    }
    
    .clientInfo{
