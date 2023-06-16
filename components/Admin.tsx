@@ -1,5 +1,5 @@
 import styles from '../app/styles/admin.module.scss';
-import { useState, useEffect} from 'react';
+import { useState} from 'react';
 import {changeStatus} from '../services/updateStatus';
 type Props = {
   orders: any[]
@@ -9,32 +9,37 @@ function Admin({orders}:Props) {
   const [status, setStatus] = useState(false);
   const [newStatus, setNewStatus] = useState('');
 
-  //total order sum
+  //order items sum
+
     const totalCosts = ()=>{
-    let arr = [];
+      let prices = [];
         orders.map((order)=>{
-          arr.push(order.basket.map((item)=>{
-               return item.price
-           }))
-        })
+            prices.push(order.basket.map((item)=>{
+                return item.price
+              }))
+            })
   
-        let res = arr.map((ar)=>{
-            const initialValue = 0;
-            const totalSum = ar.reduce(
-                (accumulator, currentValue) => accumulator + currentValue,
-                initialValue)
-                    return totalSum
+      let total = prices.map((ar)=>{
+          const initialValue = 0;
+          const totalSum = ar.reduce((accumulator, currentValue) => accumulator + currentValue,initialValue)
+              return totalSum
         })
-        let orderIds = [];
+
+      let orderIds = [];
         orders.map((order)=>{
           return orderIds.push(order.orderId)
         })
-        console.log(orderIds, res)
-    }
 
-    useEffect(()=>{
-      totalCosts()
-  },[])
+      let result = orderIds.reduce((obj, key, index) => {
+          obj[key] = total[index];
+          return obj;
+        }, {});
+
+      let output = [];
+          output.push(result);
+            return output;
+    }
+    const totalPrices = totalCosts()
 
     const statusHandler = (id)=>{
       changeStatus(id, newStatus);
@@ -73,7 +78,15 @@ function Admin({orders}:Props) {
                   </>
                 )
               })}
-               
+              {totalPrices.map((el)=>{
+                for (let i in el){
+                  if (i === order.orderId){
+                    return (
+                      <div className={styles.total}>total: {el[i]} $</div>
+                    )
+                  }
+                }
+              })}
             </div>
           )
         })}
