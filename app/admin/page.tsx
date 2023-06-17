@@ -26,7 +26,7 @@ function AdminPage() {
     <>
     <div>Hello, {email}</div>
         <h3 style={{'marginTop':'10px'}}>Order list:</h3>
-        {loading ? <h3>Loading...</h3>: <Admin orders = {orders}  request = {onRequest()}/> }
+        {loading ? <h3>Loading...</h3>: <Admin orders = {orders}/> }
     </>
   )
 }

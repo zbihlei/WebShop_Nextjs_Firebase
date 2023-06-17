@@ -11,41 +11,47 @@ function Admin({orders}:Props) {
 
   //order items sum
 
-    const totalCosts = ()=>{
-      let prices = [];
-        orders.map((order)=>{
-            prices.push(order.basket.map((item)=>{
-                return item.price
-              }))
-            })
-  
-      let total = prices.map((ar)=>{
-          const initialValue = 0;
-          const totalSum = ar.reduce((accumulator, currentValue) => accumulator + currentValue,initialValue)
-              return totalSum
-        })
+    const totalCosts = () => {
+      let prices: number[][] = [];
+      orders.map((order: any) => {
+        prices.push(
+          order.basket.map((item: any) => {
+            return item.price;
+          })
+        );
+      });
+    
+      let total: number[] = prices.map((ar: number[]) => {
+        const initialValue = 0;
+        const totalSum = ar.reduce(
+          (accumulator: number, currentValue: number) => accumulator + currentValue,
+          initialValue
+        );
+        return totalSum;
+      });
+    
+      let orderIds: string[] = [];
+      orders.map((order: any) => {
+        return orderIds.push(order.orderId);
+      });
+    
+      let result: { [key: string]: number } = orderIds.reduce((obj:any, key, index) => {
+        obj[key] = total[index];
+        return obj;
+      }, {});
+    
+      let output: { [key: string]: number }[] = [];
+      output.push(result);
+      return output;
+    };
 
-      let orderIds = [];
-        orders.map((order)=>{
-          return orderIds.push(order.orderId)
-        })
-
-      let result = orderIds.reduce((obj, key, index) => {
-          obj[key] = total[index];
-          return obj;
-        }, {});
-
-      let output = [];
-          output.push(result);
-            return output;
-    }
-    const totalPrices = totalCosts()
-
-    const statusHandler = (id)=>{
+    const totalPrices = totalCosts();
+   
+    const statusHandler = (id:string)=>{
       changeStatus(id, newStatus);
       setStatus(false);
     }
-       
+
   return ( 
     <>
         <div className={styles.productlist}>
@@ -68,7 +74,7 @@ function Admin({orders}:Props) {
                : <div onClick={()=>setStatus(true)} className={styles.status}>{order.orderStatus}</div>}
               </div>
 
-              {order.basket.map((el)=>{
+              {order.basket.map((el: any)=>{
                 return(
                   <>
                   <div className={styles.orders_wrapp}>
