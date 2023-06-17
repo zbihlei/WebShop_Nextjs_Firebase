@@ -1,22 +1,22 @@
-import {collection, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
-import {db} from '../firebase-config';
+import { collection, getDocs, getDoc, doc, DocumentSnapshot, QuerySnapshot } from 'firebase/firestore';
+import { db } from '../firebase-config';
 
-//get items from db
+// Get items from the database
+export async function getAllItems(coll: string): Promise<any[]> {
+  const itemsCollectionRef = collection(db, coll);
+  const querySnapshot: QuerySnapshot = await getDocs(itemsCollectionRef);
+  const phonesList: any[] = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return phonesList;
+}
 
- export async function getAllItems(coll: string) {
-    const itemsCollctionRef = collection(db, coll);
-    const data = await getDocs(itemsCollctionRef);
-    const phonesList: any = data.docs.map((item) => ({...item.data(), id:item.id}));
-        return phonesList;
-
- }
-
-//get item from db used collection name and id/ id from params
-export async function getItem (coll: string, id:string) {
-    const item = await getDoc(doc(db, coll, id))
-    if (item.exists())
-      return item.data()
-    else
-      return Promise.reject(Error(`No such item!: ${coll}.${id}`))
+// Get item from the database using collection name and id
+export async function getItem(coll: string, id: string): Promise<any> {
+  const itemRef = doc(db, coll, id);
+  const itemSnapshot: DocumentSnapshot = await getDoc(itemRef);
+  if (itemSnapshot.exists()) {
+    return itemSnapshot.data();
+  } else {
+    return Promise.reject(Error(`No such item!: ${coll}.${id}`));
   }
+}
 

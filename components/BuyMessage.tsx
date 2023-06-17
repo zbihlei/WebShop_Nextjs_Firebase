@@ -1,12 +1,26 @@
 import styles from '../app/styles/buyMessage.module.scss';
 import stylesback from '../app/styles/good.module.scss';
+import Link from 'next/link';
 
-export default function YouBuyIT({good}){
+interface Good {
+    photo: string;
+    name: string;
+    model: string;
+    description: string;
+  }
+
+  interface Props {
+    good: Good;
+  }
+
+const YouBuyIT: React.FC<Props> =({good})=>{
     return(
     <>
-    <div className={styles.youbuyit}>
+    <div className={styles.youBuyIt}>
         <span>You buy it!</span>
     </div>
+    <Link className={styles.basketLink} href={'/basket'}>go to basket</Link>
+
 
         <div className={styles.wrapp}>
         <img src={good.photo} alt={good.name} className={stylesback.photo} />
@@ -16,3 +30,4 @@ export default function YouBuyIT({good}){
     </>
     )
 }
+export default YouBuyIT;

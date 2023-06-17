@@ -10,7 +10,7 @@ type Props ={
 
 }
 
-const BasketItem = ({id,name,price,model}:Props) =>{
+const BasketItem: React.FC<Props>  = ({id,name,price,model}:Props) =>{
     const dispatch = useDispatch();
 
     return (

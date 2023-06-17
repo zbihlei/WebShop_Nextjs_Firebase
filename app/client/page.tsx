@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Client from '../../components/Client';
 import { getClientOrders } from '@/services/getOrders';
+import { RootState } from "@/store/index";
 
 function ClientPage() {
     const [loading, setLoading] = useState(true);
     const [orders, setOrders] = useState();
-    const {email} = useSelector(state =>state.user);
+    const {email} = useSelector((state:RootState) =>state.user);
     // const email = 'm@mail.com' // without login
 
     const onRequest =()=>{

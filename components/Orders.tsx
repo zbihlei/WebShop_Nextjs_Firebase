@@ -1,27 +1,44 @@
-import styles from '../app/styles/orders.module.scss'
-import Link from 'next/link'
+import styles from '../app/styles/orders.module.scss';
+import Link from 'next/link';
 
-type Props ={
-    orders: any[]
+interface Order {
+  id: string;
+  category: string;
+  name: string;
+  model: string;
+  photo: string;
 }
 
-const OrderList = ({orders}:Props)=> {
+interface Props {
+  orders: Order[];
+}
 
-    return (
+const OrderList: React.FC<Props> = ({ orders }) => {
+  return (
     <>
-        <ul className={styles.productlist}>
-        {orders.map((order:any)=>{
+      <ul className={styles.productlist}>
+        {orders.map((order: Order) => {
           return (
             <li className={styles.listitem} key={order.id}>
-              <Link className={styles.photo} href={`/${order.category}/${order.id}`}><img src={order.photo} alt="order"/></Link>
-              <Link  className={styles.name} href={`/${order.category}/${order.id}`}>{order.name} {order.model}</Link> 
+              <Link className={styles.photo} href={`/${order.category}/${order.id}`}>
+                <img src={order.photo} alt="order" />
+              </Link>
+              <Link className={styles.name} href={`/${order.category}/${order.id}`}>
+                {order.name} {order.model}
+              </Link>
             </li>
-          )
+          );
         })}
-    </ul>
+      </ul>
     </>
-    )
-}
+  );
+};
 
-export {OrderList};
+export { OrderList };
+
+
+
+
+
+
 

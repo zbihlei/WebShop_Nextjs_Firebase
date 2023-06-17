@@ -7,7 +7,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const Login = ()=>{
     const dispatch = useDispatch();
 
-    const handleLogin =(email, password)=>{
+    const handleLogin =(email:string, password:string)=>{
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(({user}) =>{

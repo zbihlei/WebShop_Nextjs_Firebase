@@ -7,17 +7,18 @@ import styles from '../styles/basket.module.scss';
 import { postBasket } from "@/services/postBasket";
 import { clearBasket } from "@/store/goodsSlice";
 import AfterOrder from '@/components/AfterOrder';
+import { RootState } from "@/store/index";
 
 
 export default function Basket(){
   const [ordered, setOrdered] = useState(false);
-  const basket= useSelector(state=>state.goods.basket);
+  const basket= useSelector((state:RootState)=>state.goods.basket);
   const dispatch = useDispatch()
 
   const handleSubmit = async (client: any) =>{
     await postBasket({client,basket}, 'orders')
-      .then(dispatch(clearBasket()))
-      .then(setOrdered(true));
+      .then(()=>dispatch(clearBasket()))
+      .then(()=>setOrdered(true));
   }
   
   
@@ -28,7 +29,7 @@ export default function Basket(){
         {!basket.length && !ordered ? <div style={{'margin': '30px 0 0 20px'}}>Basket is empty!</div> 
         :  
          <ul>
-        {basket.map((item)=> (<BasketItem key ={item.id} {...item}/>
+        {basket.map((item:any)=> (<BasketItem key ={item.id} {...item}/>
           ))}
         </ul>
         }

@@ -1,7 +1,12 @@
-export default function AfterOrder(){
+import styles from '../app/styles/buyMessage.module.scss';
+
+const AfterOrder: React.FC=()=>{
     return(
         <>
-        <div>Thank You! We call you immediately!</div>
+        <div className={styles.afterOrder}>
+            Thank You! We call you immediately!
+        </div>
         </>
     )
 }
+export default AfterOrder;

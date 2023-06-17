@@ -1,4 +1,4 @@
-.youbuyit{
+.youBuyIt{
     position: absolute;
     display: flex;
     justify-content: center;
@@ -13,6 +13,21 @@
         background-color: rgb(224, 224, 208);
     }
 }
+.basketLink{
+    z-index: 999;
+    color: black;
+    position: absolute;
+    right: 475px;
+    top: 400px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+    background-color:rgb(224, 224, 208);
+}
 .wrapp {
     opacity: .1;
     display: grid;
@@ -24,4 +39,11 @@
     grid-template-areas: 'phone name'
                         'phone descr'
                         'phone buy';
+}
+
+.afterOrder{
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 59px;
+    font-size: 2em;
 }

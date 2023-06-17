@@ -2,8 +2,18 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import styles from '../app/styles/form.module.scss';
 
+interface Client {
+    name: string;
+    email: string;
+    surname: string;
+    phone: string;
+  }
+  
+  interface Props {
+    handleSubmit: (client: Client) => void;
+  }
 
-const MyForm = ({handleSubmit}: any) => {
+const MyForm: React.FC<Props> = ({handleSubmit}: any) => {
 
 return (
     <Formik

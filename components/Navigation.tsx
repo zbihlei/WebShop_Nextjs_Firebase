@@ -10,7 +10,7 @@ type Props = {
     navLinks: NavLink[];
 }
 
-const Navigation = ({navLinks}: Props) =>{
+const Navigation:React.FC<Props>  = ({navLinks}) =>{
     const pathname = usePathname();
 
     return <div className={styles.aside_menu}>

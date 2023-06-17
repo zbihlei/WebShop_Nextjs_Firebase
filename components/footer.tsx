@@ -1,7 +1,9 @@
-export default function Thefooter(){
+const TheFooter: React.FC = () => {
     return (
-        <footer>
-            <div>this is some footer copyright</div>    
-        </footer>
-    )
-}
+      <footer>
+        <div>this is some footer copyright</div>    
+      </footer>
+    );
+  };
+  
+  export default TheFooter;

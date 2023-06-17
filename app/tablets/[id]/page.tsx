@@ -5,7 +5,7 @@ import { useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setGoods, addToBasket } from '@/store/goodsSlice';
 import YouBuyIT from '@/components/BuyMessage';
-
+import { RootState } from "@/store/index";
 
 type Props = {
     params: {
@@ -15,11 +15,11 @@ type Props = {
 
 export default function Phone({params} : Props){
 
-    const tablet = useSelector(state => state.goods);
+    const tablet = useSelector((state:RootState) => state.goods);
     const dispatch = useDispatch();
     const [buy, setBuy] = useState(false);
 
-    const addOrder  = (item) => { 
+    const addOrder  = (item:any) => { 
         setBuy(true);
         dispatch(addToBasket([
             {
@@ -46,7 +46,8 @@ export default function Phone({params} : Props){
                 model: data.model,
                 description:data.description,
                 photo: data.photo,
-                price: data.price
+                price: data.price,
+                basket: []
             }))
         })
     }
