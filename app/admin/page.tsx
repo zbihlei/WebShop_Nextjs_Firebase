@@ -20,13 +20,13 @@ function AdminPage() {
       useEffect(()=>{
         onRequest()
       },[])
-    
+      
   return (
     
     <>
     <div>Hello, {email}</div>
         <h3 style={{'marginTop':'10px'}}>Order list:</h3>
-        {loading ? <h3>Loading...</h3>: <Admin orders = {orders}/> }
+        {loading ? <h3>Loading...</h3>: <Admin orders = {orders} onRequest={onRequest}/> }
     </>
   )
 }

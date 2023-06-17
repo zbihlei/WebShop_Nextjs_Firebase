@@ -17,7 +17,7 @@ const GoodsList = ({goods}:Props)=> {
 
             return (
               <li className={styles.listitem} key={good.id}>
-                <Link href={`/${good.category}/${good.id}`} className={styles.photo}><img src={good.photo} alt="phone"/></Link>
+                <Link as={`/${good.category}/${good.id}`} href={`/${good.category}/${good.id}`} className={styles.photo}><img src={good.photo} alt="phone"/></Link>
                 <Link href={`/${good.category}/${good.id}`} className={styles.name}>{good.name} {good.model}</Link>
                 <div className={styles.price}>{good.price}$</div>
                 <div className={styles.description}>{shortDescr} ...</div>

@@ -1,13 +1,16 @@
 import styles from '../app/styles/admin.module.scss';
-import { useState} from 'react';
+import {useState} from 'react';
 import {changeStatus} from '../services/updateStatus';
+
 type Props = {
-  orders: any[]
+  orders: any[],
+  onRequest: ()=>void
 }
-function Admin({orders}:Props) {
+function Admin({orders, onRequest}:Props) {
 
   const [status, setStatus] = useState(false);
   const [newStatus, setNewStatus] = useState('');
+
 
   //order items sum
 
@@ -49,8 +52,10 @@ function Admin({orders}:Props) {
    
     const statusHandler = (id:string)=>{
       changeStatus(id, newStatus);
-      setStatus(false);
+        setStatus(false);
+        onRequest();
     }
+
 
   return ( 
     <>
@@ -67,9 +72,9 @@ function Admin({orders}:Props) {
                 <div className={styles.name}>{order.client.email}</div>
                 {status ? 
                 <>
-                 <input placeholder={order.orderStatus} value={newStatus} onChange={(e)=>{setNewStatus(e.target.value)}}/>
+                 <input className={styles.statusinput} placeholder={order.orderStatus} value={newStatus} onChange={(e)=>{setNewStatus(e.target.value)}}/>
                  <button className={styles.statusbtn} onClick={()=>setStatus(false)}>cancel</button> 
-                 <button className={styles.statusbtn} onClick={()=>statusHandler(order.orderId)}>apply</button> 
+                 <button className={styles.statusbtn} onClick={()=>{statusHandler(order.orderId)}}>apply</button> 
                 </>
                : <div onClick={()=>setStatus(true)} className={styles.status}>{order.orderStatus}</div>}
               </div>
