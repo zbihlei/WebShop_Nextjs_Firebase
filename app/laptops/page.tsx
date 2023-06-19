@@ -30,8 +30,8 @@ export default function Laptops(){
     return (
     <>
        <h1>Laptops</h1>
-       <Search getBySearch = {getBySearch} onSearch = {setLaptops}/>
-       {loading ? <h3>Loading...</h3> : <GoodsList goods = {laptops}/>}
+       <Search getBySearch = {getBySearch} onSearch = {setLaptops} text = 'laptop model...'/>
+       {loading ? <h3>Loading...</h3> : <GoodsList goods = {laptops} />}
        
     </>
   )

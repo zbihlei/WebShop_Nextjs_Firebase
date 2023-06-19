@@ -69,7 +69,7 @@ export default function Laptop({params} : Props){
                      name: laptop.name,
                      model: laptop.model,
                      photo:laptop.photo,
-                     price: laptop.price})}}>BUY {laptop.price}$</button></div>
+                     price: laptop.price})}}>BUY {laptop.price} $</button></div>
         </>}
         </div> 
     </>

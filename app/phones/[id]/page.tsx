@@ -69,7 +69,7 @@ export default function Phone({params} : Props){
                      name: phone.name,
                      model: phone.model,
                      photo:phone.photo,
-                     price: phone.price})}}>BUY {phone.price}$</button></div>
+                     price: phone.price})}}>BUY {phone.price} $</button></div>
         </>}
         </div> 
     </>

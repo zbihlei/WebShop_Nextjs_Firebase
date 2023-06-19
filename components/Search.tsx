@@ -3,10 +3,11 @@ import styles from '@/app/styles/search.module.scss';
 
 interface Props {
   getBySearch: (search: string) => any;
-  onSearch: (goods: any) => void; 
+  onSearch: (goods: any) => void;
+  text : string;
 }
 
-const Search: React.FC<Props> = ({ getBySearch, onSearch }) => {
+const Search: React.FC<Props> = ({ getBySearch, onSearch, text }) => {
   const [search, setSearch] = useState("");
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
@@ -21,7 +22,7 @@ const Search: React.FC<Props> = ({ getBySearch, onSearch }) => {
       <input
         className={styles.searchinput}
         type="search"
-        placeholder="phone model..."
+        placeholder = {text}
         value={search}
         onChange={(event) => { setSearch(event.target.value); getBySearch(event.target.value); }}
       />

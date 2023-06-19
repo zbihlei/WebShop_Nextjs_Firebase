@@ -30,7 +30,7 @@ export default function Phones(){
     return (
     <>
        <h1>Phones</h1>
-       <Search getBySearch = {getBySearch} onSearch = {setPhones}/>
+       <Search getBySearch = {getBySearch} onSearch = {setPhones} text = 'phone model...'/>
        {loading ? <h3>Loading...</h3> : <GoodsList goods = {phones}/>}
        
     </>

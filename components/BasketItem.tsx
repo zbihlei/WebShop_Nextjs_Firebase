@@ -15,12 +15,14 @@ const BasketItem: React.FC<Props>  = ({id,name,price,model}:Props) =>{
 
     return (
         <>
+        <div className={styles.itemWrapp}>
             <li className={styles.list}>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.model}>{model}</div>
                 <div className={styles.price}>{price}$</div>
-                <button className={styles.delete} onClick={()=>dispatch(deleteFromBasket(id))}>x</button>
             </li>
+            <button className={styles.delete} onClick={()=>dispatch(deleteFromBasket(id))}>x</button>
+        </div>
         </>
     )
 }

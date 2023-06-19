@@ -1,3 +1,7 @@
+.itemWrapp{
+    display: flex;
+    justify-content: space-between;
+}
 .list {
     width: 400px;
     margin-bottom: 30px;
@@ -12,10 +16,9 @@
 
 .delete{
     cursor: pointer;
-    font-weight: bold;
-    width: 50px;
-    height: 2em;
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 5px;
+    width: 55px;
+    height: 55px;
+    background-color: rgb(224, 224, 208);
+    border: 1px solid  rgb(224, 224, 208);
+    border-radius: 20%;
 }

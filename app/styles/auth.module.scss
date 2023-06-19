@@ -31,6 +31,8 @@
             cursor: pointer;
             width: 100px;
             height: 40px;
+            border: 1px solid  rgb(224, 224, 208);
+            border-radius: 5px;
             background-color: rgb(224, 224, 208);
             &:hover{
                 background-color: rgb(244, 244, 237);

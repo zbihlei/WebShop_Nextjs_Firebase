@@ -18,8 +18,8 @@ const YouBuyIT: React.FC<Props> =({good})=>{
     <>
     <div className={styles.youBuyIt}>
         <span>You buy it!</span>
+        <Link className={styles.basketLink} href={'/basket'}>go to basket</Link>
     </div>
-    <Link className={styles.basketLink} href={'/basket'}>go to basket</Link>
 
 
         <div className={styles.wrapp}>
