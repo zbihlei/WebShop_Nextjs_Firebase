@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Space+Mono&display=swap');
 
 .searchform {
-    margin-top: 20px;
+    margin-top: 60px;
 }
 .searchinput {
-    width: 200px;
+    width: 240px;
     height: 40px;
     outline: none;
     padding-left: 10px;
     border: none;
-    border-bottom: 1px solid rgb(224, 224, 208);
+    border-bottom: 1px solid rgb(205, 202, 202);
    
 }
 .searchbtn { 
+    cursor: pointer;
     margin-right: 20px;
     padding: 10px;
     border-radius: 5px;
     outline: none;
-    background-color:  rgb(224, 224, 208);
+    background-color: rgb(205, 202, 202);
     border: none;
     font-family: 'Space Mono', monospace;
 }

@@ -1,7 +1,6 @@
 import './globals.scss'
 import { Space_Mono } from 'next/font/google'
 import TheHeader from '@/components/Header'
-import TheFooter from '@/components/Footer'
 import {Navigation} from '../components/Navigation';
 import { Providers } from '@/store/provider';
 
@@ -38,9 +37,7 @@ export default function RootLayout({
           {children}
           </Providers>
         </main>
-        </div>
-        <TheFooter/>
-    
+        </div>   
         </body>
     </html>
 

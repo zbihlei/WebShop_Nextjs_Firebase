@@ -9,11 +9,14 @@ import { useDispatch } from 'react-redux';
 import { removeUser } from '@/store/userSlice';
 import Link from 'next/link';
 
+
 export default function Home() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const {isAuth, email} = useAuth();
   const dispatch = useDispatch();
+ 
+
 
   const onRequest = () =>{
     getAllOrders()
@@ -38,7 +41,6 @@ export default function Home() {
    : null  
       }
       </div>
-  
     {!isAuth ? <Auth/> : <div className={styles.welcome_text}>Welcome! {email}</div>}
     {isAuth  &&  email !== 'admin@mail.com' ? <Link className={styles.welcome_text} href={'/client'} >My page</Link> : null}
     {isAuth && email === 'admin@mail.com' ? <Link className={styles.welcome_text} href={'/admin'} >Admin page</Link> : null}

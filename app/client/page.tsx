@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
 import Client from '../../components/Client';
 import { getClientOrders } from '@/services/getOrders';
 import { RootState } from "@/store/index";
+import { redirect } from 'next/navigation'
+import { useAuth } from '@/hooks/useAuth';
 
 function ClientPage() {
     const [loading, setLoading] = useState(true);
     const [orders, setOrders] = useState();
     const {email} = useSelector((state:RootState) =>state.user);
+    const {isAuth} = useAuth();
     // const email = 'm@mail.com' // without login
 
     const onRequest =()=>{
@@ -19,7 +22,10 @@ function ClientPage() {
         }
     
       useEffect(()=>{
-        onRequest()
+        onRequest();
+        if(!isAuth){
+          redirect('/');
+        }
       },[])
     
   return (

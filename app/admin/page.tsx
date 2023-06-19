@@ -4,12 +4,15 @@ import { RootState } from "@/store/index";
 import { useEffect, useState } from 'react';
 import Admin from '../../components/Admin';
 import { getAdminOrders } from '@/services/getOrders';
+import { redirect } from 'next/navigation'
+import { useAuth } from '@/hooks/useAuth';
 
 function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [orders, setOrders] = useState<any[] | undefined>();
-  // const { email } = useSelector((state:RootState) => state.user);
-   const email = 'admin@mail.com' // without login
+  const { email } = useSelector((state:RootState) => state.user);
+  const {isAuth} = useAuth();
+  //  const email = 'admin@mail.com' // without login
 
   const onRequest = () => {
     getAdminOrders()
@@ -18,7 +21,10 @@ function AdminPage() {
   }
 
   useEffect(() => {
-    onRequest()
+    onRequest();
+    if(!isAuth){
+      redirect('/');
+    }
   }, [])
 
   return (

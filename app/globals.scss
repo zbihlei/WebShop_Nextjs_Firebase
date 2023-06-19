@@ -11,7 +11,7 @@ body {
   grid-gap: 0;
 }
 header {
-  background-color: rgb(224, 224, 208);
+  background-color: black;
   height: 50px;
   display: flex;
   justify-content: left;
@@ -36,15 +36,4 @@ main{
   }
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  background-color:rgb(224, 224, 208);
-  height: 40px;
-  width: 100%;
-  text-align: left;
-  line-height: 45px;
-  div{
-    margin-left: 50px;
-  }
-}
+

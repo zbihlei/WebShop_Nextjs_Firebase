@@ -20,7 +20,7 @@ const GoodsList: React.FC<Props> = ({ goods }) => {
     <ul className={styles.productlist}>
       {goods.map((good: Good) => {
         const descr: string = good.description;
-        const shortDescr = descr.substring(0, 100);
+        const shortDescr = descr.substring(0, 105);
 
         return (
           <Link href={`/${good.category}/${good.id}`}>

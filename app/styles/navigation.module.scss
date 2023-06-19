@@ -1,6 +1,7 @@
 .aside_menu{
     display: grid;
-    margin-top: 50px;
+    margin: 60px auto 0 auto;
+    width: 80%;
     grid-template-rows: repeat(3, 100px);
       &_item{
         text-decoration: none;
@@ -10,7 +11,7 @@
         animation-timing-function: ease-in-out;
         transition: .7s;
         &:hover{
-          color:rgb(149, 148, 146);
+          color:gray;
 
         }
         &_active{
@@ -20,7 +21,9 @@
         color: black;
         animation-timing-function: ease-in-out;
         transition: .7s;
-        background-color: rgb(224, 224, 208);
+        border: 2px solid gray;
+        border-radius: 10px;
+
         }
       }
     }
