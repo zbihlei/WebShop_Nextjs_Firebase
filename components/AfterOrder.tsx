@@ -4,7 +4,7 @@ const AfterOrder: React.FC=()=>{
     return(
         <>
         <div className={styles.afterOrder}>
-            Thank You! We call you immediately!
+           This page is not exist!
         </div>
         </>
     )
