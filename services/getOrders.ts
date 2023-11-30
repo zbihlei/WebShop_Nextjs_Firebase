@@ -10,7 +10,7 @@ export async function getAllOrders(): Promise<any[]> {
 }
 
 // Get user orders based on email
-export async function getClientOrders(mail: string): Promise<any[]> {
+export async function getClientOrders(mail: string | null): Promise<any[]> {
   const querySnapshot = await getDocs(ordersRef);
   const ordersList: any[] = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
   return ordersList.filter((item) => item.client.email.includes(mail));

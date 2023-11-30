@@ -6,7 +6,7 @@ import {Search} from '@/components/Search';
 
 
 export default function Phones(){
-  const [tablets, setTablets] = useState([]);
+  const [tablets, setTablets] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   const onRequest = () =>{

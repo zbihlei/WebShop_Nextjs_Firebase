@@ -10,7 +10,7 @@ import { useAuth } from '@/hooks/useAuth';
 
 function ClientPage() {
     const [loading, setLoading] = useState(true);
-    const [orders, setOrders] = useState();
+    const [orders, setOrders] = useState<any[]>();
     const {email} = useSelector((state:RootState) =>state.user);
     const {isAuth} = useAuth();
     // const email = 'm@mail.com' // without login
@@ -29,11 +29,14 @@ function ClientPage() {
       },[])
     
   return (
-    
+    <>
+    {orders ? 
     <>
     <div>Hello, {email}</div>
         <h3 style={{'marginTop':'10px'}}>Your orders</h3>
         {loading ? <h3>Loading...</h3>: <Client orders = {orders}/> }
+    </>
+    : null}
     </>
   )
 }

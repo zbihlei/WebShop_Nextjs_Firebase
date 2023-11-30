@@ -2,22 +2,22 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface GoodsState {
   id: string | null;
-  category: string | null;
-  name: string | null;
-  model: string | null;
-  photo: string | null;
-  description: string | null;
+  category: string | undefined;
+  name: string | undefined;
+  model: string | undefined;
+  photo: string | undefined;
+  description: string | undefined;
   price: number | null;
   basket: any[];
 }
 
 const initialState: GoodsState = {
   id: null,
-  category: null,
-  name: null,
-  model: null,
-  photo: null,
-  description: null,
+  category: undefined,
+  name: undefined,
+  model: undefined,
+  photo: undefined,
+  description: undefined,
   price: null,
   basket: []
 };

@@ -9,7 +9,7 @@ import { useAuth } from '@/hooks/useAuth';
 
 function AdminPage() {
   const [loading, setLoading] = useState(true);
-  const [orders, setOrders] = useState<any[] | undefined>();
+  const [orders, setOrders] = useState<any[]>();
   const { email } = useSelector((state:RootState) => state.user);
   const {isAuth} = useAuth();
   //  const email = 'admin@mail.com' // without login
@@ -29,10 +29,14 @@ function AdminPage() {
 
   return (
     <>
+    {orders ? 
+    <>
       <div>Hello, {email}</div>
       <h3 style={{ marginTop: '10px' }}>Order list:</h3>
-      {loading ? <h3>Loading...</h3> : <Admin orders={orders} onRequest={onRequest} />}
+      {loading ? <h3>Loading...</h3> : <Admin orders  ={orders} onRequest={onRequest} />}
     </>
+     : null}
+     </>
   )
 }
 

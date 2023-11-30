@@ -3,10 +3,10 @@ import stylesback from '../app/styles/good.module.scss';
 import Link from 'next/link';
 
 interface Good {
-    photo: string;
-    name: string;
-    model: string;
-    description: string;
+    photo: string | undefined;
+    name: string | undefined;
+    model: string | undefined;
+    description: string | undefined;
   }
 
   interface Props {

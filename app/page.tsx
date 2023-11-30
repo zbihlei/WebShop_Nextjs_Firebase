@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 
 export default function Home() {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const {isAuth, email} = useAuth();
   const dispatch = useDispatch();
