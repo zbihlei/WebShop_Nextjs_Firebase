@@ -24,7 +24,8 @@ export default function Phones(){
     )}
 
     useEffect(()=>{
-      onRequest()
+      onRequest();
+      console.log(phones);
     },[])
     
     return (

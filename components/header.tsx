@@ -4,7 +4,7 @@ import styles from '../app/styles/header.module.scss';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AppleIcon from '@mui/icons-material/Apple';
 
-const TheHeader: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <header className={styles.headerwrapp}>
       <div className={styles.left}>
@@ -19,4 +19,4 @@ const TheHeader: React.FC = () => {
   );
 }
 
-export default TheHeader;
+export default Header;

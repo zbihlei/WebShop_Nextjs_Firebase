@@ -1,6 +1,6 @@
 import './globals.scss'
 import { Space_Mono } from 'next/font/google'
-import TheHeader from '@/components/Header'
+import Header from '../components/Header'
 import {Navigation} from '../components/Navigation';
 import { Providers } from '@/store/provider';
 
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body  className={sm.className} >
 
-       <TheHeader/>
+       <Header/>
        <div className="wrapp">
         <aside>
           <Navigation navLinks = {navItems}/>
