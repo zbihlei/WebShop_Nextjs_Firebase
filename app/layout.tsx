@@ -1,6 +1,6 @@
 import './globals.scss'
-import { Space_Mono } from 'next/font/google'
-import Header from '../components/Header'
+import { Space_Mono } from 'next/font/google';
+import Header from './Header';
 import {Navigation} from '../components/Navigation';
 import { Providers } from '@/store/provider';
 
